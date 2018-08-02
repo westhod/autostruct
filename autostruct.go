@@ -84,7 +84,7 @@ func main() {
 				}
 			}
 
-			buffer.WriteString(fmt.Sprintf("`db:\"%s\",json:\"%s\"`\n", v.ColName, v.ColName))
+			buffer.WriteString(fmt.Sprintf("`db:\"%s\" json:\"%s\"`\n", v.ColName, v.ColName))
 
 		}
 		buffer.WriteString(`}`)
