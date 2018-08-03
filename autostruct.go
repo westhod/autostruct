@@ -45,9 +45,9 @@ func main() {
 	if len(fs) > 0 {
 		var buffer bytes.Buffer
 		buffer.WriteString("package models\n")
-		buffer.WriteString("type " + fmtFiledDefine(*tblname) + " struct {\n")
+		buffer.WriteString("type " + fmtFieldDefine(*tblname) + " struct {\n")
 		for _, v := range fs {
-			buffer.WriteString("" + fmtFiledDefine(v.ColName) + " ")
+			buffer.WriteString("" + fmtFieldDefine(v.ColName) + " ")
 			switch v.DataType {
 			case "int", "tinyint", "smallint":
 				if v.IsNullable == "YES" {
@@ -103,7 +103,7 @@ func main() {
 	}
 }
 
-func fmtFiledDefine(src string) string {
+func fmtFieldDefine(src string) string {
 	temp := strings.Split(src, "_") // 有下划线的，需要拆分
 	var str string
 	for i := 0; i < len(temp); i++ {
